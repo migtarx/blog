@@ -1,0 +1,33 @@
+name: Deploy
+run-name: Deploy to ${{ inputs.deploy_env }}
+on:
+  workflow_dispatch:
+    inputs:
+      git_ref:
+        default: latest
+        required: true
+        description: Deploy version
+      deploy_env:
+        type: choice
+        default: PRODUCTION
+        description: Deploy enviroment
+        options:
+        - PRODUCTION
+
+jobs:
+  deploy:
+    name: Deploy To ${{ github.event.inputs.deploy_env }}
+    runs-on: [self-hosted, linux, x64, "${{ github.event.inputs.deploy_env }}"]
+    steps:
+      - name: Deploy
+        uses: actions/checkout@v3
+        if: github.event.inputs.git_ref == 'latest'
+      - name: Rollback
+        uses: actions/checkout@v3
+        if: github.event.inputs.git_ref != 'latest'
+        with:
+          ref: ${{ github.event.inputs.git_ref }}
+      - name: Install dependencies
+        run: npm i
+      - name: Build hugo
+        run: hugo
