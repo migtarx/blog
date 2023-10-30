@@ -31,3 +31,5 @@ jobs:
         run: npm i
       - name: Build hugo
         run: hugo
+      - name: ${{ github.event.inputs.deploy_env }} app restart
+        run: pm2 restart BLOG --log-date-format 'DD-MM-YYYY HH:mm:ss'
