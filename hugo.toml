@@ -26,7 +26,7 @@ defaultContentLanguage = "en"
 [languages]
   [languages.es]
     title = "El blog de migtarx"
-    subtitle = "Las aventuras del friko tecnologico"
+    subtitle = "Las aventuras del chico tech"
     keywords = ""
     copyright = ""
     menuMore = "Mostrar mas"
