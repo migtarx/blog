@@ -1,9 +1,11 @@
 +++
 title = 'Finally a Blog'
-date = 2023-10-29T22:56:33+01:00
+date = 2023-10-30T22:13:09+01:00
 author = "migtarx"
-slug = "finally-a-blog"
-translationKey = "i18n-finally-a-blog"
+slug = "onboarderland"
+translationKey = "i18n-onboarderland"
 description = "Finally a way to share my experiences and also to document all my processes! This looks promising!"
-draft = true
+draft = false
+cover = "posts/img/image1.jpg"
 +++
+
