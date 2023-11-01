@@ -1,6 +1,6 @@
 +++
 title = 'Finally a Blog'
-date = 2023-10-30T22:13:09+01:00
+date = 2023-11-01
 author = "migtarx"
 slug = "onboarderland"
 translationKey = "i18n-onboarderland"
@@ -27,7 +27,7 @@ public class HelloWorld {
 ```
 It's been at least a year and a half since I last used Java, haha (I actually asked ChatGPT to generate an example code for me), but mainly because I believe it's the language that best showcases code blocks.
 
-The thing is, with **HUGO**, in a day, I've managed to learn how to use it more or less (setting up a theme, creating posts, and translations). And with the time I had left in the day, I set up a mini Express web server (MVP) to serve the static files after the **HUGO** build and configured the repository and GitHub workflows to deploy on my server.
+The thing is, with **HUGO**, in a day, I've managed to learn how to use it more or less (setting up a theme, creating posts, and translations). And with the time I had left in the day, I set up a mini Express web server (MVP[^1]) to serve the static files after the **HUGO** build and configured the repository and GitHub workflows to deploy on my server.
 
 >In other posts, I'll discuss my workflows (they're simple) and how I have my server set up with Proxmox.
 
@@ -36,3 +36,5 @@ The only drawback I find with HUGO is that if you want to interact with your rea
 Honestly, I don't know what else to tell you! I think it's not a bad first entry. I'm really excited to share my knowledge and experiences with all of you. I'm still contemplating what my next post will be...
 
 Who knows, maybe about my transition from being an APPLE HATER to having all my day-to-day devices from them? Or perhaps about workflows in GitHub?
+
+> [^1]: MVP: Minimum Viable Product.
