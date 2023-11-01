@@ -32,7 +32,7 @@ document.addEventListener('click', function(event) {
     const currentPath = window.location.pathname;
 
     if (currentPath.startsWith('/es')) {
-      const newPath = currentPath.replace('/es', '/');
+      const newPath = currentPath.replace('/es', '');
       window.location.href = window.location.origin + newPath;
     } else {
       const newPath = '/es' + currentPath;
