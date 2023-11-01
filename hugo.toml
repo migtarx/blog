@@ -9,7 +9,6 @@ publishDir = "src/public"
   defaultTheme = "dark"
   showMenuItems = 2
   showReadingTime = false
-  rssFullText = true
 defaultContentLanguage = "en"
 [languages]
   [languages.es]

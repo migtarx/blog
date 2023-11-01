@@ -39,6 +39,9 @@
 
 <!-- OG data -->
 {{ template "_internal/opengraph.html" . }}
+<!-- OG data -->
+<meta property="og:image" content="{{ .Params.cover }} " />
+
 
 <!-- RSS | JSON -->
 {{ range .AlternativeOutputFormats -}}
