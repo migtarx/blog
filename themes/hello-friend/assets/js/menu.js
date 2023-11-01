@@ -27,6 +27,21 @@ document.body.addEventListener("click", () => {
   }
 });
 
+document.addEventListener('click', function(event) {
+  if (event.target.classList.contains('langChange')) {
+    const currentPath = window.location.pathname;
+
+    if (currentPath.startsWith('/es')) {
+      const newPath = currentPath.replace('/es', '/');
+      window.location.href = window.location.origin + newPath;
+    } else {
+      const newPath = '/es' + currentPath;
+      window.location.href = window.location.origin + newPath;
+    }
+  }
+});
+
+
 window.addEventListener("resize", isMobileMenu);
 
 // Mobile menu
