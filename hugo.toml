@@ -13,6 +13,7 @@ publishDir = "src/public"
 defaultContentLanguage = "en"
 [languages]
   [languages.es]
+    languageName = "es"
     title = "El blog de migtarx"
     subtitle = "Las aventuras del chico tech"
     keywords = ""
@@ -30,15 +31,8 @@ defaultContentLanguage = "en"
       logoText = "migtarx"
       logoHomeLink = "/"
     [languages.es.menu]
-      [[languages.es.menu.main]]
-        identifier = "about"
-        name = "About"
-        url = "/about"
-      [[languages.es.menu.main]]
-        identifier = "enlang"
-        name = "EN"
-        url = "/"
   [languages.en]
+   languageName = "en"
     title = "migtarx blog"
     subtitle = "the adventures of a tech guy"
     keywords = ""
@@ -56,11 +50,3 @@ defaultContentLanguage = "en"
       logoText = "migtarx"
       logoHomeLink = "/"
     [languages.en.menu]
-      [[languages.en.menu.main]]
-        identifier = "about"
-        name = "About"
-        url = "/about"
-      [[languages.en.menu.main]]
-        identifier = "eslang"
-        name = "ES"
-        url = "/es"

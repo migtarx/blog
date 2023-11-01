@@ -384,6 +384,12 @@ body {
 .post a {
   color: #27aff8; }
 
+.post-title {
+  color: #27aff8; }
+
+.current-language {
+  display: block !important; }
+
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.3; }
 

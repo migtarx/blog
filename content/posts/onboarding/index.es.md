@@ -11,7 +11,7 @@ cover = "posts/img/image1.jpg"
 Pues tras muchos amagos, y metiendo el hocico en el mundo de los blogs, de refilon me encontre la pagina web ([apalrd.net](https://www.apalrd.net/)) de un youtuber norte americano que sigo hace tiempo [apalrd](https://www.youtube.com/@apalrdsadventures) (un geek de administrar sistemas y proxmox).
 
 El caso es que urgando en su pagina encontre que estaba hecha con algo que se llamaba **[HUGO](https://gohugo.io/)**. 
-> "Pero Miguel, que leches es **HUGO**?!"
+- "Pero Miguel, que leches es **HUGO**?!"
 
 Pues **HUGO** es un generador de sitios web estáticos de código abierto que facilita la creación de páginas web rápidas y flexibles, con una estructura simplificada basada en archivos de texto plano y plantillas personalizables. Por lo que con un simple archivo markdown es una tonteria escribir posts nuevos.
 
@@ -28,7 +28,10 @@ Hace que no usaba java por lo menos año y medio jaja (en realidad le he pedido 
 
 El caso es que con **HUGO** en un dia he aprendido a mas o menos usarlo (configurar un tema, crear posts y traducciones). Y en lo que me sobro de dia preparar un mini servidor web express (MVP) para servir los estaticos tras la build de **HUGO** y configurar el repo y los workflows de github para desplegar en mi servidor. 
 
-Btw[^1], en otros posts hablaremos de mis workflows (son una chorrada) y sobre como tengo montado mi servidor con proxomox.
+>En otros posts hablaremos de mis workflows (son una chorrada) y sobre como tengo montado mi servidor con proxomox.
 
+La unica pega que le encuentro a HUGO es que para interactuar con tus lectores te toca ingniarte algo. En mi caso, a pesar de que HUGO genere archivos estaticos, se pueden seguir incluyendo llamadas fetch o XHR al backend que sirve los estaticos (en mi caso express), asi que algo me ingeniare para organizar votaciones de nuevos posts y una especie de newsletter.
 
-[^1]: **BTW** es una abreviacion de **By The Way** (utilizaremos mucho este tipo de abreviaciones. Las citare siempre que me acuerde)
+La verdad es que no se que mas contaros! Creo que como primera entrada no esta mal. Tengo un monton de ganas de compartir mis conocimientos y experiencias con vosotros. Aun estoy pensando de que sera mi proxi post...
+
+Quien sabe, igual sobre mi transicion sobre ser un HATER DE APPLE a que todos mis dispositivos de mi dia a dia sean de ellos. O sobre workflows en github?  
