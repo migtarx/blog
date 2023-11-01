@@ -6,7 +6,7 @@ slug = "onboarderland"
 translationKey = "i18n-onboarderland"
 description = "Finally a way to share my experiences and also to document all my processes! This looks promising!"
 draft = false
-cover = "posts/img/image1.jpg"
+cover = "image1.jpg"
 +++
 
 So, after many hesitations and poking around in the world of blogs, I stumbled upon the website of a North American YouTuber I've been following for a while, [apalrd](https://www.youtube.com/@apalrdsadventures) (a geek in systems administration and Proxmox).
