@@ -36,6 +36,6 @@ The only drawback I find with HUGO is that if you want to interact with your rea
 
 Honestly, I don't know what else to tell you! I think it's not a bad first entry. I'm really excited to share my knowledge and experiences with all of you. I'm still contemplating what my next post will be...
 
-Who knows, maybe about my transition from being an APPLE HATER to having all my day-to-day devices from them? Or perhaps about workflows in GitHub?
+Who knows, maybe about my transition from being an APPLE HATER to having all my day-to-day devices from them? Or perhaps about workflows in GitHub? 
 
-> [^1]: MVP: Minimum Viable Product.
+[^1]: MVP: Minimum Viable Product.

@@ -37,4 +37,4 @@ La verdad es que no sé qué más contaros. Creo que como primera entrada no est
 
 Quién sabe, igual sobre mi transición de ser un HATER DE APPLE a que todos mis dispositivos de mi día a día sean de ellos. O sobre workflows en GitHub?
 
-> [^1]: MVP: Minimum Viable Product en español Producto mínimo viable.
+[^1]: MVP: Minimum Viable Product en español Producto mínimo viable.
