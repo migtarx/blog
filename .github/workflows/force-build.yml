@@ -1,0 +1,21 @@
+name: Force Build
+run-name: Force Build in ${{ inputs.build_enviroment }}
+on:
+  workflow_dispatch:
+    inputs:
+      build_enviroment:
+        type: choice
+        default: PRODUCTION
+        description: Build enviroment
+        options:
+        - PRODUCTION
+
+jobs:
+  deploy:
+    name: Force Build in ${{ github.event.inputs.build_enviroment }}
+    runs-on: [self-hosted, linux, x64, "${{ github.event.inputs.build_enviroment }}"]
+    steps:
+      - name: Build hugo
+        run: hugo
+      - name: ${{ github.event.inputs.build_enviroment }} app restart
+        run: pm2 restart BLOG --log-date-format 'DD-MM-YYYY HH:mm:ss'
