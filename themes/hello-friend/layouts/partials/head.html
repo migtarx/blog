@@ -40,8 +40,9 @@
 <!-- OG data -->
 {{ template "_internal/opengraph.html" . }}
 <!-- OG data -->
-<meta property="og:image" content="{{ .Params.cover }} " />
-
+<meta property="og:image" content="{{ .Params.cover }}" />
+<meta name="twitter:image" content="{{ .Params.cover }}">
+<meta property="og:site_name" content="migtarx.com">
 
 <!-- RSS | JSON -->
 {{ range .AlternativeOutputFormats -}}
