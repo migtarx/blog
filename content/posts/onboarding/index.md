@@ -6,7 +6,7 @@ slug = "onboarderland"
 translationKey = "i18n-onboarderland"
 description = "Finally a way to share my experiences and also to document all my processes! This looks promising!"
 draft = false
-cover = "img/image1.jpg"
+cover = "https://i.imgur.com/sWGfAuc.jpg"
 useRelativeCover = true
 +++
 
