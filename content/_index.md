@@ -1,5 +1,6 @@
 +++
 framed = true
+ogimage = "https://cdn.mpuerta.com/MPxorsn.jpg"
 +++
 # Hey! I'm migtarx!
 

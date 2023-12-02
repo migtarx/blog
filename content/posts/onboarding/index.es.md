@@ -7,6 +7,7 @@ translationKey = "i18n-onboarderland"
 description = "¡Finalmente una forma de compartir mis experiencias y también documentar todos mis procesos! ¡Esto parece prometedor!"
 draft = false
 cover = "https://cdn.mpuerta.com/MPxorsn.jpg"
+ogimage = "https://cdn.mpuerta.com/MPxorsn.jpg"
 +++
 Pues tras muchos intentos, y adentrándome en el mundo de los blogs, de refilón me encontré la página web ([apalrd.net](https://www.apalrd.net/)) de un youtuber norteamericano que sigo desde hace tiempo [apalrd](https://www.youtube.com/@apalrdsadventures) (un aficionado a administrar sistemas y Proxmox).
 
