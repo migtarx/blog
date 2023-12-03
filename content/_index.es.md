@@ -1,7 +1,6 @@
 +++
 framed = true
-localogimage = "img/main-cover-es.png"
-ogimage = "https://cdn.mpuerta.com/MPkmuk0.png"
+ogimage = "https://cdn.mpuerta.com/MPr80vi.png"
 ogdescription = "¡Bienvenido a mi blog! Aquí compartiré mis experiencias como desarrollador de software profesional y algunas como administrador de sistemas en mi tiempo libre."
 ogtitle = "El blog de migtarx"
 +++
