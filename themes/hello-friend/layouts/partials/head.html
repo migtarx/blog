@@ -35,7 +35,7 @@
 <link href="{{ (resources.Get "fonts/Inter-BoldItalic.woff2").RelPermalink }}" rel="preload" type="font/woff2" as="font" crossorigin="">
 
 <!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="{{ with .Params.title }}{{ . }}{{ else }}{{ .Params.ogtitle }}{{ end }}">
 <meta name="twitter:description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Params.ogdescription }}{{ end }}">
 <meta name="twitter:image" content="{{ .Params.ogimage }}">
