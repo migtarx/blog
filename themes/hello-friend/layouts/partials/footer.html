@@ -5,8 +5,12 @@
       {{ else }}
       {{ partial "logo.html" . }}
       <div class="copyright">
-        <span>© {{ now.Year }} Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span>
-        <span><a href="https://github.com/panr/hugo-theme-hello-friend" target="_blank">Theme</a> made by <a href="https://github.com/panr" target="_blank">panr</a></span>
+        <span>© {{ now.Year }} {{ $.Site.Params.writtenBy }} <a style="color: #27aff8" href="https://twitter.com/migtarx">migtarx</a> |
+          <br>
+          <a href="{{ $.Site.Params.builtWithUrl }}">{{ $.Site.Params.builtWith }}</a> |
+          <a href="{{ $.Site.Params.aboutUrl }}">{{ $.Site.Params.about }}</a> |
+          <a href="{{ $.Site.Params.contactUrl }}">{{ $.Site.Params.contact }}</a>
+        </span>
       </div>
     {{ end }}
   </div>
