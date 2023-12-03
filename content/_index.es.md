@@ -1,6 +1,8 @@
 +++
 framed = true
 ogimage = "https://cdn.mpuerta.com/MPkmuk0.png"
+ogdescription = "¡Bienvenido a mi blog! Aquí compartiré mis experiencias como desarrollador de software profesional y algunas como administrador de sistemas en mi tiempo libre."
+ogtitle = "El blog de migtarx"
 +++
 # Hola! Soy migtarx!
 
