@@ -252,9 +252,15 @@ a.read-more:active {
   100% {
     opacity: 0; } }
 
+.menu-trigger {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px; }
+
 @media (max-width: 684px) {
   .menu-trigger {
-    margin-right: 20px; } }
+    margin-right: 10px; } }
 
 .menu {
   --color: rgba(0, 0, 0, .12);
@@ -275,7 +281,7 @@ a.read-more:active {
   top: 50px; }
   @media (max-width: 684px) {
     .menu {
-      right: 20px; } }
+      right: 30px; } }
   .menu a {
     text-decoration: none; }
   .menu__inner {
@@ -352,7 +358,6 @@ a.read-more:active {
         display: inline-block;
         padding: 10px; }
   .menu-trigger {
-    width: 24px;
     height: 24px;
     fill: currentColor;
     margin-left: 10px;
