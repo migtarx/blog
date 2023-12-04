@@ -4,6 +4,9 @@ const mobileMenuTrigger = document.querySelector(".menu-trigger");
 const desktopMenu = document.querySelector(".menu__inner--desktop");
 const desktopMenuTrigger = document.querySelector(".menu__sub-inner-more-trigger");
 const menuMore = document.querySelector(".menu__sub-inner-more");
+const currentPath = window.location.pathname;
+const enLinks = document.getElementById('en-lang');
+const esLinks = document.getElementById('es-lang');
 const mobileQuery = getComputedStyle(document.body).getPropertyValue("--phoneWidth");
 const isMobile = () => true;
 const isMobileMenu = () => {
@@ -13,8 +16,15 @@ const isMobileMenu = () => {
 };
 
 // Common
-
 isMobileMenu();
+
+if (currentPath.startsWith('/es')) {
+  esLinks.classList.add('menu-selected-lang');
+  enLinks.classList.remove('menu-selected-lang');
+} else {
+  enLinks.classList.add('menu-selected-lang');
+  esLinks.classList.remove('menu-selected-lang');
+}
 
 document.body.addEventListener("click", () => {
   if (!isMobile() && menuMore && !menuMore.classList.contains("hidden")) {
@@ -26,8 +36,6 @@ document.body.addEventListener("click", () => {
 
 document.addEventListener('click', function(event) {
   if (event.target.classList.contains('langChange')) {
-    const currentPath = window.location.pathname;
-
     if (currentPath.startsWith('/es')) {
       const newPath = currentPath.replace('/es', '');
       window.location.href = window.location.origin + newPath;
