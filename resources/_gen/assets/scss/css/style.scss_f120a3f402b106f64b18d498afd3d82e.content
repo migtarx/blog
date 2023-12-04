@@ -252,6 +252,10 @@ a.read-more:active {
   100% {
     opacity: 0; } }
 
+@media (max-width: 684px) {
+  .menu-trigger {
+    margin-right: 20px; } }
+
 .menu {
   --color: rgba(0, 0, 0, .12);
   --shadow: 0 8px 20px var(--color);
@@ -271,7 +275,7 @@ a.read-more:active {
   top: 50px; }
   @media (max-width: 684px) {
     .menu {
-      right: 0px; } }
+      right: 20px; } }
   .menu a {
     text-decoration: none; }
   .menu__inner {
