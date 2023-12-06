@@ -1,0 +1,19 @@
+name: Restart
+run-name: ${{ inputs.restart_env }} server restart
+on:
+  workflow_dispatch:
+    inputs:
+      restart_env:
+        type: choice
+        default: PRODUCTION
+        description: Restart enviroment
+        options:
+        - PRODUCTION
+
+jobs:
+  restart:
+    name: ${{ github.event.inputs.restart_env }} server restart
+    runs-on: [self-hosted, linux, x64, "${{ github.event.inputs.restart_env }}"]
+    steps:
+      - name: ${{ github.event.inputs.restart_env }} app restart
+        run: pm2 restart BLOG --log-date-format 'DD-MM-YYYY HH:mm:ss'
