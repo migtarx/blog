@@ -3,6 +3,7 @@ languageCode = "en-us"
 theme = "hello-friend"
 paginate = 5
 publishDir = "src/public"
+googleAnalytics = "G-XLN4KF6SDM"
 
 [params]
   contentTypeName = "posts"
