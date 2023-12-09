@@ -2,16 +2,36 @@ require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const pjson = require('pjson');
+const cookieParser = require("cookie-parser");
+const morgan = require('morgan');
+const helmet = require('helmet');
 const app = express();
-const db = require('./database/connection.js');
+const { assignId, skipStatics, skipStatusServer } = require('./middlewares/morgan');
 const BootService = require('./services/boot.service');
 const execMode = BootService.getExecutionMode();
 const PORT = process.env.PORT || 3000; 
-const Static = require("./models/Static");
-let globalViews = 0;
 
-db.then(() => console.log(`Connected to mongodb server`)).catch((err) =>
-  console.log(`mongodb connection failed: ${err}`),
+app.use(express.json())
+app.use(cookieParser());
+app.use(helmet({
+  contentSecurityPolicy: false
+}));
+morgan.token('user-ip', function(req) {
+  return execMode == "pro" ? req.headers['X-Real-IP'] : req.ip;
+});
+morgan.token('accepted-cookies', function(req) {
+  return Boolean(req.cookies['cookie-accepted']);
+});
+morgan.token('id', function getId(req) {
+  return req.id;
+});
+app.use(assignId);
+app.use(
+  morgan('New request from [:user-ip] \n{ \n    Request ID: :id \n    Method: :method \n    Route: :url \n    Status code: :status  \n    Response time: :response-time \n    Accepted Cookies: :accepted-cookies \n}', {
+      skip: function (req, res) {
+          return skipStatics(req, res) || skipStatusServer(req, res);
+      }
+  })
 );
 
 app.get('/status', (req, res) => {
@@ -25,35 +45,6 @@ app.get('/status', (req, res) => {
   });
 });
 
-app.get('/views', (req, res) => {
-  res.send(globalViews.toString());
-});
-
-app.use(async (req, res, next) => {
-  const requestedPath = req.url;
-
-  if (requestedPath.indexOf('.') === -1) {
-    console.log('Requested:', requestedPath);
-    try {
-      let static = await Static.findOne({ staticName: 'GLOBAL' });
-      if (!static) {
-        static = new Static({
-          staticName: 'GLOBAL',
-          views: 0
-        });
-      }
-      static.views++;
-      const savedStatic = await static.save();
-      globalViews = savedStatic.views;
-      console.log('Current views:', globalViews);
-    } catch (err) {
-      console.log('Error:', err);
-    }
-  }
-  
-  next();
-});
-
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('*', function(req, res){
@@ -62,13 +53,5 @@ app.get('*', function(req, res){
 
 app.listen(PORT, async() => {
   console.log(`Server listening in port ${PORT}`);
-  try {
-    let static = await Static.findOne({ staticName: 'GLOBAL' });
-    if (static) {
-      globalViews = static.views;
-    }
-  } catch (err) {
-    console.log('Error:', err);
-  }
 });
 
