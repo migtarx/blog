@@ -29,4 +29,4 @@ translationKey = "i18n-cookies-es"
 
 Al continuar utilizando nuestro sitio web, aceptas el uso de cookies según lo descrito en esta política.
 
-Fecha de última actualización: [Incluir la fecha de la última revisión de la política de cookies].
+Fecha de última actualización: 09/12/2023
