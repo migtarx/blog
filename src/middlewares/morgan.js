@@ -8,7 +8,12 @@ function assignId(req, res, next) {
 
 function skipStatics(req, res) {
     const staticFilesPrefixes = ['/css', '/js', '/images', '/img', '/fonts'];
-    return staticFilesPrefixes.some(prefix => req.originalUrl.startsWith(prefix));
+    const fileExtensionsToSkip = ['.js', '.css', '.png', '.jpg', '.jpeg'];
+
+    const shouldSkipFileExtension = fileExtensionsToSkip.some(extension => req.originalUrl.endsWith(extension));
+    const shouldSkipStaticFile = staticFilesPrefixes.some(prefix => req.originalUrl.startsWith(prefix));
+
+    return shouldSkipFileExtension || shouldSkipStaticFile;
 }
 
 function skipStatusServer(req, res) {

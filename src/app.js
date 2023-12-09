@@ -17,7 +17,7 @@ app.use(helmet({
   contentSecurityPolicy: false
 }));
 morgan.token('user-ip', function(req) {
-  return execMode == "pro" ? req.headers['X-Real-IP'] : req.ip;
+  return execMode == "pro" ? req.headers['x-real-ip'] : req.ip;
 });
 morgan.token('accepted-cookies', function(req) {
   return Boolean(req.cookies['cookie-accepted']);
