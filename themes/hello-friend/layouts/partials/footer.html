@@ -1,3 +1,11 @@
+<div class="cookie-consent slide-in-animation">
+  <div class="cookie-consent-info">
+    <p>{{ $.Site.Params.cookiesPolicy }}<br><a href="/cookies" style="color: #27b1ff;">{{ $.Site.Params.cookiesPolicyShowMore }}</a></p>
+     <div class="cookie-consent-cta">
+    <button class="cta-accept">Ok</button>
+  </div>
+  </div>
+</div>
 <footer class="footer">
   <div class="footer__inner">
     {{ if $.Site.Copyright }}
@@ -16,10 +24,11 @@
   </div>
 </footer>
 
+{{ $cookies := resources.Get "js/cookies.js" | js.Build }}
 {{ $menu := resources.Get "js/menu.js" | js.Build }}
 {{ $prism := resources.Get "js/prism.js" | js.Build }}
 {{ $theme := resources.Get "js/theme.js" | js.Build }}
-{{ $bundle := slice $menu $prism $theme | resources.Concat "bundle.js" | resources.Minify }}
+{{ $bundle := slice $menu $cookies $prism $theme | resources.Concat "bundle.js" | resources.Minify }}
 <script type="text/javascript" src="{{ $bundle.RelPermalink }}"></script>
 
 {{- partial "extended_footer.html" . }}

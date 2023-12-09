@@ -13,6 +13,8 @@ googleAnalytics = "G-XLN4KF6SDM"
 defaultContentLanguage = "en"
 [languages]
   [languages.es]
+    cookiesPolicy = "Este sitio web utiliza cookies para garantizar que obtenga la mejor experiencia en nuestro sitio web."
+    cookiesPolicyShowMore = "Mostrar mas"
     contact = "Contacto"
     contactUrl = "/es/contact"
     about = "Acerca de"
@@ -38,6 +40,8 @@ defaultContentLanguage = "en"
       logoHomeLink = "/es"
     [languages.es.menu]
   [languages.en]
+    cookiesPolicy = "This website uses cookies to ensure you get the best experience on our website."
+    cookiesPolicyShowMore = "Show more"
     contact = "Contact"
     contactUrl = "/contact"
     about = "About"
