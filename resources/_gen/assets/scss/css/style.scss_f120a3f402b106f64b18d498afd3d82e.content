@@ -771,7 +771,7 @@ h4:hover a {
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 50px;
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -800,14 +800,17 @@ h4:hover a {
 
 .cta-accept {
   margin-left: 10px;
+  color: white;
   background-color: #26b1ff; }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 934px) {
   .cookie-consent {
     flex-direction: column;
     height: auto; }
   .cookie-consent-info {
-    margin-bottom: 8px; } }
+    margin-bottom: 8px; }
+  #cookies-policy-url {
+    display: block; } }
 
 .hide-out {
   display: none; }
