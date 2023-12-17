@@ -29,5 +29,5 @@ translationKey = "i18n-cookies"
 
 By continuing to use our website, you accept the use of cookies as described in this policy.
 
-Last updated: [Include the date of the last cookie policy review].
+Last updated: 09/12/2023
 
