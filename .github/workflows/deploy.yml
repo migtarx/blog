@@ -34,4 +34,4 @@ jobs:
       - name: ${{ github.event.inputs.deploy_env }} app restart
         run: pm2 restart BLOG --log-date-format 'DD-MM-YYYY HH:mm:ss'
       - name: Notify deployment
-        run: DEPLOY_ENV=${{ github.event.inputs.git_ref }} NTFY_USER=${{ secrets.NTFY_USER }} NTFY_PASSWD=${{ secrets.NTFY_PASSWD }} NTFY_SERVER_URL=${{ secrets.NTFY_SERVER_URL }} PROJECT_NAME=${{ vars.PROJECT_NAME }} npm run notify:deploy
+        run: DEPLOY_ENV=${{ github.event.inputs.deploy_env}} NTFY_USER=${{ secrets.NTFY_USER }} NTFY_PASSWD=${{ secrets.NTFY_PASSWD }} NTFY_SERVER_URL=${{ secrets.NTFY_SERVER_URL }} PROJECT_NAME=${{ vars.PROJECT_NAME }} npm run notify:deploy
