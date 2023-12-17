@@ -33,3 +33,5 @@ jobs:
         run: hugo
       - name: ${{ github.event.inputs.deploy_env }} app restart
         run: pm2 restart BLOG --log-date-format 'DD-MM-YYYY HH:mm:ss'
+      - name: Notify deployment
+        run: DEPLOY_ENV=${{ github.event.inputs.git_ref }} NTFY_USER=$NTFY_USER NTFY_PASSWD=$NTFY_PASSWD NTFY_SERVER_URL=$NTFY_SERVER_URL PROJECT_NAME=$PROJECT_NAME npm run notify:deploy
