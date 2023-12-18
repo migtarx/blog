@@ -7,14 +7,12 @@ const morgan = require('morgan');
 const helmet = require('helmet');
 const app = express();
 const { assignId, skipStatics, skipStatusServer } = require('./middlewares/morgan');
-const { locator } = require('./middlewares/locator');
 const BootService = require('./services/boot.service');
 const execMode = BootService.getExecutionMode();
 const PORT = process.env.PORT || 3000; 
 
 app.use(express.json())
 app.use(cookieParser());
-app.use(locator);
 app.use(helmet({
   contentSecurityPolicy: false
 }));
@@ -24,12 +22,22 @@ morgan.token('user-ip', function(req) {
 morgan.token('accepted-cookies', function(req) {
   return Boolean(req.cookies['cookie-accepted']);
 });
-morgan.token('location', async function(req) {
+app.use(async function getLocation(req, res, next) {
+  const ip = global.exec_mode == "pro" ? req.headers['x-real-ip'] : req.ip;
+  const response = await fetch(`https://api.iplocation.net/?ip=${ip}`);
+  const data = await response.json();
+  req.location = data.country_name;
+  next();
+});
+
+morgan.token('location', function(req) {
   return req.location;
 });
+
 morgan.token('id', function getId(req) {
   return req.id;
 });
+
 app.use(assignId);
 app.use(
   morgan('{ \n    Request ID: :id \n    Request IP: :user-ip \n    Request location: :location \n    Method: :method \n    Route: :url \n    Status code: :status  \n    Response time: :response-time \n    Accepted Cookies: :accepted-cookies \n}', {
