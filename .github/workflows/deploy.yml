@@ -13,6 +13,10 @@ on:
         description: Deploy enviroment
         options:
         - PRODUCTION
+      restart_app:
+        type: boolean
+        default: true
+        description: Restart app
 
 jobs:
   deploy:
@@ -32,6 +36,9 @@ jobs:
       - name: Build hugo
         run: hugo
       - name: ${{ github.event.inputs.deploy_env }} app restart
-        run: pm2 restart BLOG --log-date-format 'DD-MM-YYYY HH:mm:ss'
+        run: |
+          if [ ${{ github.event.inputs.restart_app }} == true ]; then
+            pm2 restart BLOG --log-date-format 'DD-MM-YYYY HH:mm:ss'
+          fi
       - name: Notify deployment
         run: DEPLOY_ENV=${{ github.event.inputs.deploy_env}} NTFY_USER=${{ secrets.NTFY_USER }} NTFY_PASSWD=${{ secrets.NTFY_PASSWD }} NTFY_SERVER_URL=${{ secrets.NTFY_SERVER_URL }} PROJECT_NAME=${{ vars.PROJECT_NAME }} npm run notify:deploy
