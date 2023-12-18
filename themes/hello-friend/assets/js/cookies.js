@@ -15,6 +15,6 @@ document.addEventListener("DOMContentLoaded", function() {
     acceptButton.addEventListener('click', function() {
         banner.classList.remove('slide-in-animation');
         banner.classList.add('hide-out');
-        document.cookie = `cookie-accepted=true`
+        document.cookie = `cookie-accepted=true; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
     });
 });

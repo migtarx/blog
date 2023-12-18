@@ -22,12 +22,19 @@ morgan.token('user-ip', function(req) {
 morgan.token('accepted-cookies', function(req) {
   return Boolean(req.cookies['cookie-accepted']);
 });
+morgan.token('location', async function(req) {
+  const ip = execMode == "pro" ? req.headers['x-real-ip'] : req.ip;
+  const response = await fetch(`https://api.iplocation.net/?ip=${ip}`);
+  const data = await response.json();
+  const countryName = data.country_name;
+  return countryName;
+});
 morgan.token('id', function getId(req) {
   return req.id;
 });
 app.use(assignId);
 app.use(
-  morgan('New request from [:user-ip] \n{ \n    Request ID: :id \n    Method: :method \n    Route: :url \n    Status code: :status  \n    Response time: :response-time \n    Accepted Cookies: :accepted-cookies \n}', {
+  morgan('{ \n Request ID: :id \n    Request IP: :user-ip \n    Request location: :location \n    Method: :method \n    Route: :url \n    Status code: :status  \n    Response time: :response-time \n    Accepted Cookies: :accepted-cookies \n}', {
       skip: function (req, res) {
           return skipStatics(req, res) || skipStatusServer(req, res);
       }
