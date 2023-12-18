@@ -3,6 +3,7 @@ async function locator(req, res, next) {
     const response = await fetch(`https://api.iplocation.net/?ip=${ip}`);
     const data = await response.json();
     const countryName = data.country_name;
+    console.log(`Request from ${countryName}`)
     req.location = countryName;
     next();
 }
