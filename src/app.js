@@ -23,10 +23,19 @@ morgan.token('accepted-cookies', function(req) {
   return Boolean(req.cookies['cookie-accepted']);
 });
 app.use(async function getLocation(req, res, next) {
-  // const ip = global.exec_mode == "pro" ? req.headers['x-real-ip'] : req.ip;
-  // const response = await fetch(`https://api.iplocation.net/?ip=${ip}`);
-  // const data = await response.json();
-  req.location = "unknown"//data.country_name;
+  let data;
+  try {
+    const ip = global.exec_mode == "pro" ? req.headers['x-real-ip'] : req.ip;
+    const response = await fetch(`https://api.iplocation.net/?ip=${ip}`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    data = await response.json();
+  } catch (error) {
+    console.error('Error fetching IP location:', error);
+    data = { country_name: 'Unknown || Error fetching' };
+  }
+  req.location = data.country_name;
   next();
 });
 
