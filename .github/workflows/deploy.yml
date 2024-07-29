@@ -15,7 +15,7 @@ on:
         - PRODUCTION
       restart_app:
         type: boolean
-        default: true
+        default: false
         description: Restart app
 
 jobs:

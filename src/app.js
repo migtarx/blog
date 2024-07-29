@@ -8,8 +8,6 @@ const helmet = require('helmet');
 const Falconflare = require('@mpuertadev/falconflare-client');
 const app = express();
 const { assignId, skipStatics, skipStatusServer } = require('./middlewares/morgan');
-const BootService = require('./services/boot.service');
-const execMode = BootService.getExecutionMode();
 const PORT = process.env.PORT || 3000; 
 
 app.use(express.json())
@@ -18,7 +16,7 @@ app.use(helmet({
   contentSecurityPolicy: false
 }));
 morgan.token('user-ip', function(req) {
-  return execMode == "pro" ? req.headers['x-real-ip'] : req.ip;
+  return process.env.ENV == "prod" ? req.headers['x-real-ip'] : req.ip;
 });
 morgan.token('accepted-cookies', function(req) {
   return Boolean(req.cookies['cookie-accepted']);
@@ -27,7 +25,7 @@ app.use(async function getLocation(req, res, next) {
   const ffclient = new Falconflare({serverUrl: process.env.FF_URL, accessKey: process.env.FF_PASSWD})
   let ipData;
   try {
-    const ip = global.exec_mode == "pro" ? req.headers['x-real-ip'] : req.ip;
+    const ip = process.env.ENV == "prod" ? req.headers['x-real-ip'] : req.ip;
     data = await ffclient.getIpData(ip);
   } catch (error) {
     console.error('Error fetching IP location:', error);
@@ -57,7 +55,7 @@ app.use(
 app.get('/status', (req, res) => {
   res.json({
     Status: 'OK',
-    'Runtime-Mode': execMode == 'pro' ? 'Production' : 'Development',
+    'Runtime-Mode': process.env.ENV == 'pro' ? 'Production' : 'Development',
     'Application-Version': pjson.version,
     'Application-Description': 'migtarx.com BLOG',
     'Application-Author': 'miguel@mpuerta.dev',
