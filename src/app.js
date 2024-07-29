@@ -31,9 +31,9 @@ app.use(async function getLocation(req, res, next) {
     data = await ffclient.getIpData(ip);
   } catch (error) {
     console.error('Error fetching IP location:', error);
-    ipData = { country_name: 'Unknown || Error fetching' };
+    ipData = { country_name: 'Unknown || Error fetching', city: 'Unknown || Error fetching' };
   }
-  req.location = `${ipData.data.city}, ${ipData.data.country_name}`;
+  req.location = `${ipData?.city}, ${ipData?.country_name}`;
   next();
 });
 
