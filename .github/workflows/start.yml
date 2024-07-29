@@ -1,0 +1,19 @@
+name: Start
+run-name: ${{ inputs.start_env }} server start
+on:
+  workflow_dispatch:
+    inputs:
+      start_env:
+        type: choice
+        default: PRODUCTION
+        description: start enviroment
+        options:
+        - PRODUCTION
+
+jobs:
+  start:
+    name: ${{ github.event.inputs.start_env }} server start
+    runs-on: [self-hosted, linux, x64, "${{ github.event.inputs.start_env }}"]
+    steps:
+      - name: ${{ github.event.inputs.start_env }} app start
+        run: PORT=${{ secrets.PORT }} STATUS_SERVER_IP=${{ secrets.STATUS_SERVER_IP }} FF_URL=${{ secrets.FF_URL }} FF_PASWD=${{ secrets.FF_PASWD }} pm2 start npm --name "BLOG" -- start --log-date-format 'DD-MM-YYYY HH:mm:ss'
