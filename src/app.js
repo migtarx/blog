@@ -5,6 +5,7 @@ const pjson = require('pjson');
 const cookieParser = require("cookie-parser");
 const morgan = require('morgan');
 const helmet = require('helmet');
+const Falconflare = require('@mpuertadev/falconflare-client');
 const app = express();
 const { assignId, skipStatics, skipStatusServer } = require('./middlewares/morgan');
 const BootService = require('./services/boot.service');
@@ -23,19 +24,16 @@ morgan.token('accepted-cookies', function(req) {
   return Boolean(req.cookies['cookie-accepted']);
 });
 app.use(async function getLocation(req, res, next) {
-  // let data;
-  // try {
-  //   const ip = global.exec_mode == "pro" ? req.headers['x-real-ip'] : req.ip;
-  //   const response = await fetch(`https://api.iplocation.net/?ip=${ip}`);
-  //   if (!response.ok) {
-  //     throw new Error(`HTTP error! status: ${response.status}`);
-  //   }
-  //   data = await response.json();
-  // } catch (error) {
-  //   console.error('Error fetching IP location:', error);
-  //   data = { country_name: 'Unknown || Error fetching' };
-  // }
-  req.location = "Unknown";//data.country_name;
+  const ffclient = new Falconflare({serverUrl: process.env.FF_URL, accessKey: process.env.FF_PASSWD})
+  let ipData;
+  try {
+    const ip = global.exec_mode == "pro" ? req.headers['x-real-ip'] : req.ip;
+    data = await ffclient.getIpData(ip);
+  } catch (error) {
+    console.error('Error fetching IP location:', error);
+    ipData = { country_name: 'Unknown || Error fetching' };
+  }
+  req.location = `${ipData.data.city}, ${ipData.data.country_name}`;
   next();
 });
 
