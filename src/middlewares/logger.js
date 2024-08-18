@@ -12,7 +12,7 @@ const logRequest = async (req, res, next) => {
 
   if (userIp !== statusServerIp && !isStaticRoute){
     const url = req.originalUrl || req.url;
-    const ipData = await ffclient.getIpData(ip);
+    const ipData = await ffclient.getIpData(userIp);
     const userLocation = `${ipData.city}, ${ipData.country}`
     const requestId = uuidv4();
     const start = process.hrtime();
