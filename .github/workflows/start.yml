@@ -16,4 +16,4 @@ jobs:
     runs-on: [self-hosted, linux, x64, "${{ github.event.inputs.start_env }}"]
     steps:
       - name: ${{ github.event.inputs.start_env }} app start
-        run: ENV=${{ secrets.ENV }} PORT=${{ secrets.PORT }} STATUS_SERVER_IP=${{ secrets.STATUS_SERVER_IP }} FF_URL=${{ secrets.FF_URL }} FF_PASWD=${{ secrets.FF_PASWD }} pm2 start npm --name "BLOG" -- start --log-date-format 'DD-MM-YYYY HH:mm:ss'
+        run: ENV=${{ secrets.ENV }} PORT=${{ secrets.PORT }} STATUS_SERVER_IP=${{ secrets.STATUS_SERVER_IP }} FF_URL=${{ secrets.FF_URL }} FF_PASSWD=${{ secrets.FF_PASWD }} pm2 start npm --name "BLOG" -- start --log-date-format 'DD-MM-YYYY HH:mm:ss'
